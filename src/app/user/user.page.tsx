@@ -1,5 +1,5 @@
 import { HttpFetchAdapter } from "../../infra/http/httpClient"
-import { UserService } from "../../services/user/User"
+import { UserService } from "../../services/user/user"
 import { useUserModel } from "./user.model"
 import UserView from "./user.view"
 

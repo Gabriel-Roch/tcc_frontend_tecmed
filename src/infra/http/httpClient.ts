@@ -1,7 +1,6 @@
-
 import { HttpClient, HttpRequest } from './httpClient.type'
 
-const URL = 'http://localhost:8080'
+const URL = 'http://localhost:8080/api'
 
 export class HttpFetchAdapter implements HttpClient {
 	async request<R>({ endpoint, method, body, headers }: HttpRequest): Promise<R> {
