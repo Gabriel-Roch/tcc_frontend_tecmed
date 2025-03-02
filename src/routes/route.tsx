@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
                 path: "/users",
                 element: <UserPage />,
                 handle: {
-                    title: "usuarios"
+                    title: "Usuarios"
                 }
             }
         ],
