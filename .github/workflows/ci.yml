@@ -1,0 +1,22 @@
+#referencia https://github.com/marketplace/actions/send-http-request
+
+name: Jenkins Trigger Job
+
+on:
+  push:
+    branches:
+      - main  
+
+jobs:
+  trigger-jenkins-job:
+    runs-on: ubuntu-latest 
+
+    steps:
+      - name: Trigger Jenkins Job
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: 'http://rochacorporation.com.br//job/frontend_tecmed/build/WithParameters?token=${{ secrets.JENKINS_TOKEN }}'
+          method: 'POST'
+          username: ${{ secrets.JENKINS_USERNAME }}
+          password: ${{ secrets.JENKINS_PASSWORD }}
+          customHeaders: '{"Content-Type": "application/x-www-form-urlencoded"}'
