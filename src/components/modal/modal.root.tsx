@@ -1,5 +1,4 @@
-import { ReactNode, useState } from "react"
-import { ModalComponentContext } from "../../context/modalContext"
+import { ReactNode } from "react"
 
 interface ModalRootProps {
   children: ReactNode

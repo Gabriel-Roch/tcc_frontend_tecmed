@@ -30,11 +30,6 @@ export const useUserModel = (userService: IUserService) => {
             key: 'u_name',
         },
         {
-            title: 'Idade',
-            dataIndex: 'age',
-            key: 'age',
-        },
-        {
             title: 'CPF',
             dataIndex: 'cpf',
             key: 'cpf',
@@ -45,10 +40,11 @@ export const useUserModel = (userService: IUserService) => {
             key: "dt_create"
         },
         {
-            render: (value, record, index) => {
+            render: (_, record) => {
                 return (
                     <ModalProvider>
                         <EditUser
+                            {...userService}
                             key={`user${record.id_u}`}
                             idUser={record.id_u}
                         />

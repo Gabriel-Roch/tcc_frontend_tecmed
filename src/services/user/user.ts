@@ -6,6 +6,7 @@ export interface IUserService {
     getUsers: () => Promise<Array<IUsers>>
     deleteUserById: (id: number) => Promise<void>
     updateUser: (data: IupdateUser) => Promise<void>
+    getUserById: (idUser: number) => Promise<IUsers | []>
 }
 
 export class UserService implements IUserService {
@@ -18,6 +19,7 @@ export class UserService implements IUserService {
                 method: HttpMethod.GET,
                 endpoint: "/users"
             })
+            console.log("oque chegou", response)
             return response
         } catch (error) {
             throw error
@@ -50,13 +52,18 @@ export class UserService implements IUserService {
     async updateUser(data: IupdateUser): Promise<void> {
         try {
             await this.httpClient.request<void>({
-                method : HttpMethod.PATCH,
-                endpoint : "/users",
-                body : data
+                method: HttpMethod.PATCH,
+                endpoint: "/users",
+                body: data
             })
         } catch (error) {
             throw error
         }
+    }
+
+    async getUserById(idUser: number): Promise<IUsers | []> {
+        console.log(idUser)
+        return []
     }
 
 }

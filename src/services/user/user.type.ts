@@ -3,7 +3,6 @@ import { z } from "zod"
 export interface IUsers {
     id_u: number
     u_name: string
-    age: number 
     cpf: string 
     password: string
     dt_create : string
@@ -11,7 +10,6 @@ export interface IUsers {
 
 export const schemaRegisterUser = z.object({
     name: z.string(),
-    age: z.number(),
     cpf: z.string(),
     password: z.string()
 })
