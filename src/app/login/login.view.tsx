@@ -3,7 +3,7 @@
 export default function LoginView() {
     return (
         <div>
-            Login
+            Login 2
         </div>
     )
 }
