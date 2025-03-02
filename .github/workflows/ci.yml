@@ -1,6 +1,6 @@
 #referencia https://github.com/marketplace/actions/send-http-request
 
-name: Jenkins Trigger Job
+name: Jenkins Trigger Job front
 
 on:
   push:
