@@ -12,6 +12,7 @@ export default function UserView(props: UserViewProps) {
         loadingUsers
     } = props
 
+
     return (
         <div className="h-full w-full p-3">
             <div className="bg-white rounded-md shadow-md">
