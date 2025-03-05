@@ -15,22 +15,28 @@ export default function LayoutSidebar({ children, title }: LayoutSidebarProps) {
 
     return (
         <Layout className="h-screen">
-            <Header >
-                <span className='text-white'>
+            <Header
+                className='border-b border-zinc-200'
+                style={{
+                    backgroundColor: "white"
+                }}>
+                <span className='text-black'>
                     {title}
                 </span>
             </Header>
             <Layout className="h-full flex">
-                <Sider
-                    theme='light'
-                    className="fixed bottom-0 overflow-y-auto"
-                    collapsible>
-                    <MyMenu />
-                </Sider>
+                <div className='h-full flex border-r border-zinc-200'>
+                    <Sider
+                        theme='light'
+                        className="fixed bottom-0 overflow-y-auto"
+                        collapsible>
+                        <MyMenu />
+                    </Sider>
+                </div>
                 <Layout
                     className="overflow-auto h-full">
                     <div className="flex flex-col h-screen">
-                        <Content className="flex-grow">
+                        <Content className="flex-grow bg-[#f4f5ff]">
                             {children}
                         </Content>
                         <Footer

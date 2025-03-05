@@ -1,9 +1,7 @@
-
 import { createBrowserRouter } from "react-router";
 import App from "../App";
 import UserPage from "../app/user/user.page";
 import LoginPage from "../app/login/login.page";
-
 
 export const router = createBrowserRouter([
     {

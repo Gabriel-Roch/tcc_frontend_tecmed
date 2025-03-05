@@ -19,7 +19,6 @@ export class UserService implements IUserService {
                 method: HttpMethod.GET,
                 endpoint: "/users"
             })
-            console.log("oque chegou", response)
             return response
         } catch (error) {
             throw error

@@ -3,7 +3,7 @@ import { Menu } from 'antd';
 import { useNavigate } from "react-router";
 
 export default function MyMenu() {
-    
+
     const navigate = useNavigate();
 
     const items: MenuProps['items'] = [
@@ -15,6 +15,16 @@ export default function MyMenu() {
         {
             key: '2',
             label: 'Sobre',
+        },
+        {
+            key: '4',
+            label: 'Paciente',
+            children: [
+                {
+                    key: "register_patient",
+                    label: "Cadastrar Paciente"
+                }
+            ]
         },
         {
             key: '3',
