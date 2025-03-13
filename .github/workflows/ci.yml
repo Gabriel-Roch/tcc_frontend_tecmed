@@ -12,11 +12,26 @@ jobs:
     runs-on: ubuntu-latest 
 
     steps:
+    - name: Get Jenkins Crumb
+        id: get_crumb
+        run: |
+          CRUMB=$(curl -s -u "${{ secrets.JENKINS_USERNAME }}:${{ secrets.JENKINS_PASSWORD }}" "http://rochacorporation.com.br:8080/crumbIssuer/api/json" | jq -r '.crumb')
+          CRUMB_FIELD=$(curl -s -u "${{ secrets.JENKINS_USERNAME }}:${{ secrets.JENKINS_PASSWORD }}" "http://rochacorporation.com.br:8080/crumbIssuer/api/json" | jq -r '.crumbRequestField')
+          echo "CRUMB=$CRUMB" >> $GITHUB_ENV
+          echo "CRUMB_FIELD=$CRUMB_FIELD" >> $GITHUB_ENV
+
       - name: Trigger Jenkins Job
-        uses: fjogeleit/http-request-action@v1
-        with:
-          url: 'http://rochacorporation.com.br:8080/job/frontend_tecmed/build/WithParameters?token=${{ secrets.JENKINS_TOKEN }}'
-          method: 'POST'
-          username: ${{ secrets.JENKINS_USERNAME }}
-          password: ${{ secrets.JENKINS_PASSWORD }}
-          # customHeaders: '{"Content-Type": "application/x-www-form-urlencoded"}'
+        run: |
+          curl -X POST \
+            -u "${{ secrets.JENKINS_USERNAME }}:${{ secrets.JENKINS_PASSWORD }}" \
+            -H "$CRUMB_FIELD: $CRUMB" \
+            "http://rochacorporation.com.br:8080/job/frontend_tecmed/build/WithParameters?token=${{ secrets.JENKINS_TOKEN }}"
+
+
+      # - name: Trigger Jenkins Job
+      #   uses: fjogeleit/http-request-action@v1
+      #   with:
+      #     url: 'http://rochacorporation.com.br:8080/job/frontend_tecmed/build/WithParameters?token=${{ secrets.JENKINS_TOKEN }}'
+      #     method: 'POST'
+      #     username: ${{ secrets.JENKINS_USERNAME }}
+      #     password: ${{ secrets.JENKINS_PASSWORD }}
