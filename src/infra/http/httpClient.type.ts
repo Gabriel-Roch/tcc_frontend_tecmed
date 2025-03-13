@@ -3,14 +3,15 @@ export enum HttpMethod {
 	POST = 'post',
 	PUT = 'put',
 	DELETE = 'delete',
-	PATCH =  'PATCH'
+	PATCH = 'PATCH'
 }
 
 export type HttpRequest = {
-	endpoint: string
+	endpoint?: string
 	method: HttpMethod
 	body?: any
 	headers?: any
+	URL_FULL?: string
 }
 
 export interface HttpClient {

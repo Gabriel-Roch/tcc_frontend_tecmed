@@ -39,13 +39,13 @@ export default function LayoutSidebar({ children, title }: LayoutSidebarProps) {
                         <Content className="flex-grow bg-[#f4f5ff]">
                             {children}
                         </Content>
-                        <Footer
+                        {/* <Footer
                             style={{
                                 backgroundColor: "white"
                             }}
                             className="py-4 text-center">
                             @RochaCorporation
-                        </Footer>
+                        </Footer> */}
                     </div>
                 </Layout>
             </Layout>
