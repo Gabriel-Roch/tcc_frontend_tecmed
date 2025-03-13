@@ -4,7 +4,7 @@ import {
 } from 'antd';
 import MyMenu from './layout.menu';
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content, Sider } = Layout;
 
 interface LayoutSidebarProps {
     children: ReactNode
