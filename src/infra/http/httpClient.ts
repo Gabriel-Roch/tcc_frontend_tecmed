@@ -4,7 +4,6 @@ const URL = import.meta.env.VITE_BASE_URL
 
 export class HttpFetchAdapter implements HttpClient {
 	async request<R>({ endpoint, method, body, headers }: HttpRequest): Promise<R> {
-
 		try {
 			const response = await fetch(`${URL}${endpoint}`, {
 				method: method.toUpperCase(),
@@ -23,7 +22,7 @@ export class HttpFetchAdapter implements HttpClient {
 
 			return await response.json();
 		} catch (error) {
-			throw new Error(`Request failed: ${error instanceof Error ? error.message : String(error)}`);
+			throw new Error(`${error instanceof Error ? error.message : String(error)}`);
 		}
 	}
 }

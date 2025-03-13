@@ -1,4 +1,5 @@
 import { HttpClient, HttpMethod } from "../../infra/http/httpClient.type";
+import { Iagreement } from "./agreement.type";
 
 
 
@@ -7,9 +8,9 @@ export class AgreementService {
 
     async getAll(){
         try{
-            return await this.httpClient.request({
-                endpoint : "",
-                method : HttpMethod.POST
+            return await this.httpClient.request<Iagreement[]>({
+                endpoint : "/master/agreement",
+                method : HttpMethod.GET 
             })
         }catch(error){
             throw error

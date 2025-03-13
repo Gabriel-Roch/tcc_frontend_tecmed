@@ -6,6 +6,7 @@ export const schemaNewPatients = z.object({
     sex: z.enum(["M", "F"]),
     cpf: z.string(),
     rg: z.string(),
+    birth : z.string(),
     type_blood: z.number(),
     medical_agreement: z.number().or(z.null()),
     medical_agreement_number: z.string().or(z.null()),
@@ -28,3 +29,7 @@ export const schemaNewPatients = z.object({
         description: z.string()
     })
 })
+
+
+export type InewPatient = z.infer<typeof schemaNewPatients>
+
