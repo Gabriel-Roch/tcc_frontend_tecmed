@@ -3,6 +3,8 @@ import App from "../App";
 import UserPage from "../app/user/user.page";
 import LoginPage from "../app/login/login.page";
 import UsePatientPage from "../app/registerPatient/patient.page";
+import EditUserPage from "../app/edit-user/editUser.page";
+import ProductPage from "../app/product/product.page";
 
 export const router = createBrowserRouter([
     {
@@ -27,11 +29,19 @@ export const router = createBrowserRouter([
                 }
             },
             {
+                path: "/users/:id",
+                element: <EditUserPage />
+            },
+            {
                 path: "/patient/new",
                 element: <UsePatientPage />,
-                handle : {
-                    title : "Cadastrar Paciente"
+                handle: {
+                    title: "Cadastrar Paciente"
                 }
+            },
+            {
+                path: "/product/new",
+                element: <ProductPage />
             }
         ],
     },

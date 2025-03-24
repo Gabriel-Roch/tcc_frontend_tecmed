@@ -3,7 +3,9 @@ import { ConfigProvider, Menu } from 'antd';
 import {
     ClipboardMinus,
     House,
+    Plus,
     Settings,
+    ShoppingCart,
     UserPlus,
     Users
 } from 'lucide-react';
@@ -21,7 +23,7 @@ export default function MyMenu() {
             onClick: () => navigate("/")
         },
         {
-            key: '4',
+            key: '2',
             label: 'Paciente',
             icon: <ClipboardMinus className='size-4' />,
             children: [
@@ -29,7 +31,7 @@ export default function MyMenu() {
                     key: "register_patient",
                     icon: <UserPlus className='size-4' />,
                     label: "Cadastrar Paciente",
-                    onClick : () => navigate("/patient/new")
+                    onClick: () => navigate("/patient/new")
                 }
             ]
         },
@@ -46,6 +48,19 @@ export default function MyMenu() {
                 }
             ]
         },
+        {
+            key: "4",
+            label: "Produtos",
+            icon: <ShoppingCart className='size-4' />,
+            children: [
+                {
+                    key: 'register_product',
+                    label: "Registrar",
+                    icon: <Plus className='size-4' />,
+                    onClick: () => navigate("/product/new")
+                }
+            ]
+        }
     ];
 
     return <ConfigProvider theme={{

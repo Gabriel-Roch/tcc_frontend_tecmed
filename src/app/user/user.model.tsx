@@ -1,17 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import { IUserService } from "../../services/user/user";
-import { TableProps } from "antd";
+import { Button, TableProps } from "antd";
 import { IUsers } from "../../services/user/user.type";
-import ModalProvider from "../../context/modalContext";
-import EditUser from "./editUser";
+import { useNavigate } from "react-router";
 
 export const useUserModel = (userService: IUserService) => {
 
+    const navigate = useNavigate()
+
     const {
-        data: allUsers,
-        error: errorAllUsers,
-        refetch: reloadUsers,
-        isLoading: loadingUsers
+        ...propsAllUsers
     } = useQuery({
         queryKey: ['allUsers'],
         queryFn: () => userService.getUsers(),
@@ -19,46 +17,19 @@ export const useUserModel = (userService: IUserService) => {
     })
 
     const columns: TableProps<IUsers>['columns'] = [
-        {
-            title: 'id',
-            dataIndex: 'id_u',
-            key: 'id',
-        },
-        {
-            title: 'Name',
-            dataIndex: 'u_name',
-            key: 'u_name',
-        },
-        {
-            title: 'CPF',
-            dataIndex: 'cpf',
-            key: 'cpf',
-        },
-        {
-            title: "Date",
-            dataIndex: "dt_create",
-            key: "dt_create"
-        },
+        { title: 'id', dataIndex: 'id_u', key: 'id' },
+        { title: 'Name', dataIndex: 'u_name', key: 'u_name' },
+        { title: 'CPF', dataIndex: 'cpf', key: 'cpf' },
+        { title: "Date", dataIndex: "dt_create", key: "dt_create" },
         {
             render: (_, record) => {
-                return (
-                    <ModalProvider>
-                        <EditUser
-                            {...userService}
-                            key={`user${record.id_u}`}
-                            idUser={record.id_u}
-                        />
-                    </ModalProvider>
-                )
+                return <Button onClick={() => navigate("/users/" + record.id_u)} >Editar usuario</Button>
             }
         }
     ];
 
     return {
-        allUsers,
-        errorAllUsers,
-        reloadUsers,
         columns,
-        loadingUsers
+        propsAllUsers
     }
 }
