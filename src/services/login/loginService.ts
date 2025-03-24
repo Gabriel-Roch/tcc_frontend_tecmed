@@ -6,15 +6,13 @@ export class LoginService {
 
     constructor(private readonly httpClient: HttpClient) { }
 
-    async login(data: Ilogin): Promise<{ access_token: string }> {
+    async login(data: Ilogin) {
         try {
-            const response = await this.httpClient.request({
+            return await this.httpClient.request<Promise<{ access_token: string }>>({
                 endpoint: "/auth/login",
                 method: HttpMethod.POST,
                 body: data
             })
-            return response as { access_token: string }
-
         } catch (error) {
             throw error
         }

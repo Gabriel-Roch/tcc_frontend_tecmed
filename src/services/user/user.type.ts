@@ -1,7 +1,7 @@
 import { z } from "zod"
 
 export interface IUsers {
-    id_u: number
+    id_u: string
     u_name: string
     cpf: string 
     password: string
@@ -15,7 +15,7 @@ export const schemaRegisterUser = z.object({
 })
 
 export const schemaUpdateUser = schemaRegisterUser.extend({
-    id: z.number()
+    id: z.string()
 })
 
 export type IupdateUser = z.infer<typeof schemaUpdateUser>

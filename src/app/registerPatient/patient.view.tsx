@@ -19,7 +19,7 @@ export default function PatientView(props: PatientViewProps) {
                 <h1 className="text-white font-semibold">Cadastrar Paciente</h1>
             </div>
             <Form
-                onFinish={props.handleSubmit}>
+                onFinish={props.prospMutationCreatePatient.mutate}>
                 <div className="flex gap-x-2 p-3">
                     <div className="w-full">
                         <Form.Item
@@ -113,7 +113,7 @@ export default function PatientView(props: PatientViewProps) {
                             <Select
                                 allowClear
                                 placeholder="selecione o tipo sanguíneo">
-                                {props.dataMasterBlood?.map((value) => {
+                                {props.propsQueryMasterBlood.data?.map((value) => {
                                     return <Option key={value.b_name} value={value.id_b.toString()} >{value.b_name}</Option>
                                 })}
                             </Select>
@@ -126,7 +126,7 @@ export default function PatientView(props: PatientViewProps) {
                         >
                             <Select
                                 placeholder="selecione o plano">
-                                {props.dataAgreement?.map((value) => {
+                                {props.propsQueryMasterAgreement.data?.map((value) => {
                                     return <Option key={value.ma_name} value={value.id_ma.toString()} >{value.ma_name}</Option>
                                 })}
                             </ Select >
