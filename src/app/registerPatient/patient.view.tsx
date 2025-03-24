@@ -19,6 +19,7 @@ export default function PatientView(props: PatientViewProps) {
                 <h1 className="text-white font-semibold">Cadastrar Paciente</h1>
             </div>
             <Form
+                form={props.formNewPatient}
                 onFinish={props.prospMutationCreatePatient.mutate}>
                 <div className="flex gap-x-2 p-3">
                     <div className="w-full">

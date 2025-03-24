@@ -17,26 +17,10 @@ export const useUserModel = (userService: IUserService) => {
     })
 
     const columns: TableProps<IUsers>['columns'] = [
-        {
-            title: 'id',
-            dataIndex: 'id_u',
-            key: 'id',
-        },
-        {
-            title: 'Name',
-            dataIndex: 'u_name',
-            key: 'u_name',
-        },
-        {
-            title: 'CPF',
-            dataIndex: 'cpf',
-            key: 'cpf',
-        },
-        {
-            title: "Date",
-            dataIndex: "dt_create",
-            key: "dt_create"
-        },
+        { title: 'id', dataIndex: 'id_u', key: 'id' },
+        { title: 'Name', dataIndex: 'u_name', key: 'u_name' },
+        { title: 'CPF', dataIndex: 'cpf', key: 'cpf' },
+        { title: "Date", dataIndex: "dt_create", key: "dt_create" },
         {
             render: (_, record) => {
                 return <Button onClick={() => navigate("/users/" + record.id_u)} >Editar usuario</Button>

@@ -4,7 +4,7 @@ import UserPage from "../app/user/user.page";
 import LoginPage from "../app/login/login.page";
 import UsePatientPage from "../app/registerPatient/patient.page";
 import EditUserPage from "../app/edit-user/editUser.page";
-import ProductView from "../app/product/product.view";
+import ProductPage from "../app/product/product.page";
 
 export const router = createBrowserRouter([
     {
@@ -41,7 +41,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/product/new",
-                element: <ProductView />
+                element: <ProductPage />
             }
         ],
     },

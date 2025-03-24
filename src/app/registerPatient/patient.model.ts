@@ -4,6 +4,8 @@ import { AgreementService } from "../../services/medicalAgreement/agreementServi
 import { typeSubmit } from "./patient.type";
 import { PatientService } from "../../services/patient/patientService";
 import { useNotification } from "../../context/notificationContext";
+import { Form } from "antd";
+
 
 export const useModelPatient = (
     masterBloodService: MasterBloodService,
@@ -12,6 +14,7 @@ export const useModelPatient = (
 ) => {
 
     const notification = useNotification()
+    const [formNewPatient] = Form.useForm()
 
     const {
         ...propsQueryMasterBlood
@@ -63,6 +66,7 @@ export const useModelPatient = (
                     message: data.message,
                     type: "success"
                 })
+                formNewPatient.resetFields()
             },
             onError: (error) => {
                 const errorMessage = error instanceof Error ? error.message : String(error);
@@ -79,6 +83,7 @@ export const useModelPatient = (
     } = useMutationCreatePatient()
 
     return {
+        formNewPatient,
         propsQueryMasterAgreement,
         propsQueryMasterBlood,
         prospMutationCreatePatient
