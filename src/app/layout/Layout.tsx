@@ -1,10 +1,11 @@
 import { ReactNode } from 'react';
 import {
+    ConfigProvider,
     Layout
 } from 'antd';
 import MyMenu from './layout.menu';
 
-const { Header, Content, Sider } = Layout;
+const { Header, Sider } = Layout;
 
 interface LayoutSidebarProps {
     children: ReactNode
@@ -35,18 +36,13 @@ export default function LayoutSidebar({ children, title }: LayoutSidebarProps) {
                 </div>
                 <Layout
                     className="overflow-auto h-full">
-                    <div className="flex flex-col h-screen">
-                        <Content className="flex-grow bg-[#f4f5ff]">
-                            {children}
-                        </Content>
-                        {/* <Footer
-                            style={{
-                                backgroundColor: "white"
-                            }}
-                            className="py-4 text-center">
-                            @RochaCorporation
-                        </Footer> */}
-                    </div>
+                    <ConfigProvider theme={{
+                        token: {
+                            colorPrimary: "#673de6"
+                        }
+                    }}>
+                        {children}
+                    </ConfigProvider>
                 </Layout>
             </Layout>
         </Layout >

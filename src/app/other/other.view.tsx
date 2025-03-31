@@ -1,11 +1,10 @@
+import { Outlet } from "react-router"
+import { useOtherModel } from "./other.model"
+import { Menu } from "antd"
 
-import { Outlet } from "react-router";
-import { useModelPatient } from "./patient.model";
-import { Menu } from "antd";
+type propsView = ReturnType<typeof useOtherModel>
 
-type PatientViewProps = ReturnType<typeof useModelPatient>
-
-export default function PatientView(props: PatientViewProps) {
+export default function OtherView(props: propsView) {
     return (
         <div className="w-full h-full ">
             <div>
@@ -13,6 +12,5 @@ export default function PatientView(props: PatientViewProps) {
             </div>
             <Outlet />
         </div>
-
     )
 }

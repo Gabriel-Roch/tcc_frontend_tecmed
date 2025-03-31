@@ -1,4 +1,4 @@
-import { ConfigProvider, Table } from "antd"
+import { Table } from "antd"
 import { useProductModel } from "./product.model"
 import ModalProvider from "../../context/modalContext"
 import { ModalComponente } from "../../components/modal"
@@ -11,27 +11,21 @@ export default function ProductView(props: propsView) {
     return (
         <div className="h-full w-full p-3">
             <div className="mb-3">
-                <ConfigProvider theme={{
-                    token: {
-                        colorPrimary: "#673de6"
-                    }
-                }}>
-                    <ModalProvider>
-                        <ModalComponente.Root>
-                            <ModalComponente.Button
-                                type="primary"
-                            >
-                                Cadastrar Novo Produto
-                            </ModalComponente.Button>
-                            <ModalComponente.Content
-                                width={"60%"}
-                                footer={null}
-                                title="Novo Produto">
-                                <RegisterProductView {...props} />
-                            </ModalComponente.Content>
-                        </ModalComponente.Root>
-                    </ModalProvider>
-                </ConfigProvider>
+                <ModalProvider>
+                    <ModalComponente.Root>
+                        <ModalComponente.Button
+                            type="primary"
+                        >
+                            Cadastrar Novo Produto
+                        </ModalComponente.Button>
+                        <ModalComponente.Content
+                            width={"60%"}
+                            footer={null}
+                            title="Novo Produto">
+                            <RegisterProductView {...props} />
+                        </ModalComponente.Content>
+                    </ModalComponente.Root>
+                </ModalProvider>
             </div>
             <div className="bg-white rounded-md shadow-md">
                 <Table

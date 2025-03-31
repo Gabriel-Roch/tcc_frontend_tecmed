@@ -3,7 +3,7 @@ import ModalButton from "./modal.button"
 import ModalContent from "./modal.content"
 
 export const ModalComponente = {
-    Root : ModalRoot,
+    Root: ModalRoot,
     Button: ModalButton,
     Content: ModalContent
 }

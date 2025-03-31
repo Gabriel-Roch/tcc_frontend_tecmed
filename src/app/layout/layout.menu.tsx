@@ -3,10 +3,10 @@ import { ConfigProvider, Menu } from 'antd';
 import {
     ClipboardMinus,
     House,
+    PanelRight,
     Plus,
     Settings,
     ShoppingCart,
-    UserPlus,
     Users
 } from 'lucide-react';
 import { useNavigate } from "react-router";
@@ -26,14 +26,7 @@ export default function MyMenu() {
             key: '2',
             label: 'Paciente',
             icon: <ClipboardMinus className='size-4' />,
-            children: [
-                {
-                    key: "register_patient",
-                    icon: <UserPlus className='size-4' />,
-                    label: "Cadastrar Paciente",
-                    onClick: () => navigate("/patient/new")
-                }
-            ]
+            onClick: () => navigate("/patient")
         },
         {
             key: '3',
@@ -60,6 +53,12 @@ export default function MyMenu() {
                     onClick: () => navigate("/product/new")
                 }
             ]
+        },
+        {
+            key: "5",
+            label: "Outros",
+            icon: <PanelRight className="size-4" />,
+            onClick: () => navigate("/others/agreement")
         }
     ];
 
