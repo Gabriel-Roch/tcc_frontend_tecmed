@@ -10,6 +10,7 @@ import { PatientListPage } from "../app/registerPatient/sub-screen/patient-list/
 import OtherPage from "../app/other/other.page";
 import AgreementPage from "../app/other/sub-screen/agreement/agreement.page";
 import MedicineManufacturerPage from "../app/other/sub-screen/medicine-manufacturer/medicine-manufacturer.page";
+import MobilePage from "../app/mobile/mobile.page";
 
 export const router = createBrowserRouter([
     {
@@ -65,4 +66,8 @@ export const router = createBrowserRouter([
             }
         ],
     },
+    {
+        path: "/mobile",
+        element: <MobilePage />
+    }
 ]);

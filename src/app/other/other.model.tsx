@@ -13,7 +13,7 @@ type MenuItem = Required<MenuProps>['items'][number];
 export const useOtherModel = (
     medicineManufacturer: MedicineManufacturerService,
     medicalAgreement: AgreementService,
-    masterBlood: MasterBloodService
+    _: MasterBloodService
 ) => {
 
     const navigate = useNavigate()
