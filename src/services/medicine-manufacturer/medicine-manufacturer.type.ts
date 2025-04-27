@@ -6,5 +6,5 @@ export interface IgetAllActive {
 
 export interface Icreate {
     name: string
-    cnpj: string | null
+    cnpj: string
 }
