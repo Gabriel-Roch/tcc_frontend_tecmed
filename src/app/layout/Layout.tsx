@@ -4,6 +4,7 @@ import {
     Layout
 } from 'antd';
 import MyMenu from './layout.menu';
+import { jwtDecoded } from '../../utils/jwtToken';
 
 const { Header, Sider } = Layout;
 
@@ -14,15 +15,22 @@ interface LayoutSidebarProps {
 
 export default function LayoutSidebar({ children, title }: LayoutSidebarProps) {
 
+    const { token } = jwtDecoded()
+
+    console.log(token)
+
     return (
         <Layout className="h-screen">
             <Header
-                className='border-b border-zinc-200'
+                className='border-b border-zinc-200 flex justify-between'
                 style={{
                     backgroundColor: "white"
                 }}>
                 <span className='text-black'>
                     {title}
+                </span>
+                <span>
+                    {token.name.toUpperCase()}
                 </span>
             </Header>
             <Layout className="h-full flex">

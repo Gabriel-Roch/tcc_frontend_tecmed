@@ -9,7 +9,6 @@ import { IgetAllActive } from "../../services/medicine-manufacturer/medicine-man
 import { Iagreement } from "../../services/medicalAgreement/agreement.type";
 import { IcreateAgreementForm, IsaveManufacturer } from "./other.type";
 import { useNotification } from "../../context/notificationContext";
-
 type MenuItem = Required<MenuProps>['items'][number];
 
 export const useOtherModel = (

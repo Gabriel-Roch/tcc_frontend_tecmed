@@ -11,6 +11,7 @@ import OtherPage from "../app/other/other.page";
 import AgreementPage from "../app/other/sub-screen/agreement/agreement.page";
 import MedicineManufacturerPage from "../app/other/sub-screen/medicine-manufacturer/medicine-manufacturer.page";
 import MobilePage from "../app/mobile/mobile.page";
+import { ProtectedRoute } from "../components/protectRoute/protectedRoute";
 
 export const router = createBrowserRouter([
     {
@@ -18,7 +19,11 @@ export const router = createBrowserRouter([
         element: <LoginPage />
     },
     {
-        element: <App />,
+        element: (
+            <ProtectedRoute requiredRoles={['user']}>
+                <App />
+            </ProtectedRoute>
+        ),
         children: [
             {
                 path: "/",
@@ -26,7 +31,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/users",
-                element: <UserPage />
+                element: (
+                    <ProtectedRoute requiredRoles={['user']}>
+                        <UserPage />
+                    </ProtectedRoute>
+                )
             },
             {
                 path: "/users/:id",
