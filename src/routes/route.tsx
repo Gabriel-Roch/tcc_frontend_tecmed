@@ -12,6 +12,8 @@ import AgreementPage from "../app/other/sub-screen/agreement/agreement.page";
 import MedicineManufacturerPage from "../app/other/sub-screen/medicine-manufacturer/medicine-manufacturer.page";
 import MobilePage from "../app/mobile/mobile.page";
 import { ProtectedRoute } from "../components/protectRoute/protectedRoute";
+import ServicePage from "../app/service/service.page";
+import TotemPage from "../app/totem/totem.page";
 
 export const router = createBrowserRouter([
     {
@@ -72,11 +74,19 @@ export const router = createBrowserRouter([
                         element: <MedicineManufacturerPage />
                     }
                 ]
+            },
+            {
+                path: "/service",
+                element: <ServicePage />
             }
         ],
     },
     {
         path: "/mobile",
         element: <MobilePage />
+    },
+    {
+        path: "/totem",
+        element: <TotemPage />
     }
 ]);

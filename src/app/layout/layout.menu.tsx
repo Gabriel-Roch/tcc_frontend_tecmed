@@ -2,11 +2,11 @@ import type { MenuProps } from 'antd';
 import { ConfigProvider, Menu } from 'antd';
 import {
     ClipboardMinus,
+    HandPlatter,
     House,
     PanelRight,
     Plus,
     Settings,
-    ShoppingCart,
     Users
 } from 'lucide-react';
 import { useNavigate } from "react-router";
@@ -24,9 +24,21 @@ export default function MyMenu() {
         },
         {
             key: '2',
-            label: 'Paciente',
+            label: 'Pacientes',
             icon: <ClipboardMinus className='size-4' />,
             onClick: () => navigate("/patient")
+        },
+        {
+            key: 'register_product',
+            label: "Material",
+            icon: <Plus className='size-4' />,
+            onClick: () => navigate("/product/new")
+        },
+        {
+            key: "5",
+            label: "Outros",
+            icon: <PanelRight className="size-4" />,
+            onClick: () => navigate("/others/agreement")
         },
         {
             key: '3',
@@ -42,24 +54,11 @@ export default function MyMenu() {
             ]
         },
         {
-            key: "4",
-            label: "Produtos",
-            icon: <ShoppingCart className='size-4' />,
-            children: [
-                {
-                    key: 'register_product',
-                    label: "Registrar",
-                    icon: <Plus className='size-4' />,
-                    onClick: () => navigate("/product/new")
-                }
-            ]
+            key: '6',
+            label: 'Atendimento',
+            icon: <HandPlatter className='size-4' />,
+            onClick: () => navigate("/service")
         },
-        {
-            key: "5",
-            label: "Outros",
-            icon: <PanelRight className="size-4" />,
-            onClick: () => navigate("/others/agreement")
-        }
     ];
 
     return <ConfigProvider theme={{

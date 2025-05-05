@@ -3,9 +3,9 @@ import { z } from "zod"
 export interface IUsers {
     id_u: string
     u_name: string
-    cpf: string 
+    cpf: string
     password: string
-    dt_create : string
+    dt_create: string
 }
 
 export const schemaRegisterUser = z.object({

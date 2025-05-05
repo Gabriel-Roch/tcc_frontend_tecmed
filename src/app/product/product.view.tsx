@@ -16,7 +16,7 @@ export default function ProductView(props: propsView) {
                         <ModalComponente.Button
                             type="primary"
                         >
-                            Cadastrar Novo Produto
+                            Cadastrar Novo Material
                         </ModalComponente.Button>
                         <ModalComponente.Content
                             width={"60%"}
