@@ -3,7 +3,7 @@ import { serviceModel } from "./service.model"
 
 type propsView = ReturnType<typeof serviceModel>
 
-export default function ServiceView(props: propsView) {
+export default function ServiceView(_: propsView) {
     return (
         <>
             service
