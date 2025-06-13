@@ -14,6 +14,8 @@ import MobilePage from "../app/mobile/mobile.page";
 import { ProtectedRoute } from "../components/protectRoute/protectedRoute";
 import ServicePage from "../app/service/service.page";
 import TotemPage from "../app/totem/totem.page";
+import EnfermagemPage from "../app/enfermagem/enfermagem.page";
+import AtendimentoPage from "../app/atendimento/atendimento.page";
 
 export const router = createBrowserRouter([
     {
@@ -78,6 +80,10 @@ export const router = createBrowserRouter([
             {
                 path: "/service",
                 element: <ServicePage />
+            },
+            {
+                path: "/atendimento/:id",
+                element: <AtendimentoPage />
             }
         ],
     },
@@ -88,5 +94,9 @@ export const router = createBrowserRouter([
     {
         path: "/totem",
         element: <TotemPage />
+    },
+    {
+        path: "/enfermagem",
+        element: <EnfermagemPage />
     }
 ]);
